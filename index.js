@@ -4,6 +4,22 @@ const util = require('util');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
+const licenses = [
+    { name: "Apache License 2.0", abbr: "Apache" },
+    { name: "GNU General Public License v3.0", abbr: "GNU" },
+    { name: "MIT License", abbr: "MIT" },
+    { name: "BSD 2-Clause \"Simplified\" License", abbr: "BSD 2" },
+    { name: "BSD 3-Clause \"New\" or \"Revised\" License", abbr: "BSD 3" },
+    { name: "Boost Software License 1.0", abbr: "Boost" }
+    { name: "Creative Commons Zero v1.0 Universal", abbr: "Creative" }
+    { name: "Eclipse Public License 2.0", abbr: "Eclipse" }
+    { name: "GNU Affero General Public License v3.0", abbr: "GNU 3.0" }
+    { name: "GNU General Public License v2.0", abbr: "GNU General" }
+    { name: "GNU Lesser General Public License v2.1", abbr: "GNU Lesser" }
+    { name: "Mozilla Public License 2.0", abbr: "Mozilla" }
+    { name: "The Unlicense", abbr: "UNI" }
+  ];
+
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -40,7 +56,13 @@ const promptUser = () => {
   ]);
 };
 
-const generateHTML = (answers) =>
+const getLicense() =>
+{
+    //I need to compare the selected license value from answers to that in the licenses object to select the abbr so I can set the badge
+};
+
+const generateMD = (answers) =>
+getLicense();
 
 `# ${answers.title}
 
@@ -76,7 +98,7 @@ const init = async () => {
   try {
     const answers = await promptUser();
 
-    const md = generateHTML(answers);
+    const md = generateMD(answers);
 
     await writeFileAsync('README.md', md);
 
