@@ -11,10 +11,25 @@ const promptUser = () => {
       name: 'title',
       message: 'What is the title of your project?',
     },
-    {
-        type: 'input',
+      {
+        type: 'editor',
         name: 'description',
-        message: 'Enter a description of your project?',
+        message: 'Enter a description of your project.  Be sure to save before closing the editor when you are done.',
+      },
+      {
+        type: 'editor',
+        name: 'install',
+        message: 'Enter installation instructions for your project.  Be sure to save before closing the editor when you are done.',
+      },
+      {
+        type: 'editor',
+        name: 'usage',
+        message: 'Enter usage instructions for your project.  Be sure to save before closing the editor when you are done.',
+      },
+      {
+        type: 'editor',
+        name: 'contrib',
+        message: 'Enter contribution guidelines for your project.  Be sure to save before closing the editor when you are done.',
       },
 
   ]);
@@ -25,6 +40,18 @@ const generateHTML = (answers) =>
 
 ## Description
 ${answers.description}
+
+## Installation
+${answers.install}
+
+## Usage
+${answers.usage}
+
+## Contributing
+${answers.description}
+
+## Tests
+${answers.contrib}
 
 
 `;
