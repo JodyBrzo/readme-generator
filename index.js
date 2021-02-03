@@ -20,7 +20,7 @@ const licenses = [
     { name: "The Unlicense", abbr: "UNI" }
   ];
 
-const promptUser = () => {
+const userQuestions = () => {
   return inquirer.prompt([
     {
       type: 'input',
@@ -28,22 +28,22 @@ const promptUser = () => {
       message: 'What is the title of your project?',
     },
       {
-        type: 'input',
+        type: 'editor',
         name: 'description',
         message: 'Enter a description of your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'install',
         message: 'Enter installation instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'usage',
         message: 'Enter usage instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'contrib',
         message: 'Enter contribution guidelines for your project.  Be sure to save before closing the editor when you are done.',
       },
@@ -84,6 +84,15 @@ const generateMD = (answers, licenseAbbr) =>
 ## Description
 ${answers.description}
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [License](#License)
+* [Questions](#Questions)
+
 ## Installation
 ${answers.install}
 
@@ -110,7 +119,7 @@ If you have additonal queations you can email me at ${answers.email}
 const init = async () => {
   console.log('Welcome to the README.md generator');
   try {
-    const answers = await promptUser();
+    const answers = await userQuestions();
 
     let licenseAbbr = getLicense(answers);
     
@@ -118,7 +127,7 @@ const init = async () => {
 
     await writeFileAsync('README.md', md);
 
-    console.log('Successfully wrote to Readme.md');
+    console.log('Your Readme.md is complete!');
   } catch (err) {
     console.log(err);
   }
