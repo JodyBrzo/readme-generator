@@ -8,15 +8,15 @@ const licenses = [
     { name: "Apache License 2.0", abbr: "Apache" },
     { name: "GNU General Public License v3.0", abbr: "GNU" },
     { name: "MIT License", abbr: "MIT" },
-    { name: "BSD 2-Clause \"Simplified\" License", abbr: "BSD 2" },
-    { name: "BSD 3-Clause \"New\" or \"Revised\" License", abbr: "BSD 3" },
-    { name: "Boost Software License 1.0", abbr: "Boost" }
-    { name: "Creative Commons Zero v1.0 Universal", abbr: "Creative" }
-    { name: "Eclipse Public License 2.0", abbr: "Eclipse" }
-    { name: "GNU Affero General Public License v3.0", abbr: "GNU 3.0" }
-    { name: "GNU General Public License v2.0", abbr: "GNU General" }
-    { name: "GNU Lesser General Public License v2.1", abbr: "GNU Lesser" }
-    { name: "Mozilla Public License 2.0", abbr: "Mozilla" }
+    { name: "BSD 2-Clause \"Simplified\" License", abbr: "BSD" },
+    { name: "BSD 3-Clause \"New\" or \"Revised\" License", abbr: "BSD" },
+    { name: "Boost Software License 1.0", abbr: "Boost" },
+    { name: "Creative Commons Zero v1.0 Universal", abbr: "Creative" },
+    { name: "Eclipse Public License 2.0", abbr: "Eclipse" },
+    { name: "GNU Affero General Public License v3.0", abbr: "GNU" },
+    { name: "GNU General Public License v2.0", abbr: "GNU" },
+    { name: "GNU Lesser General Public License v2.1", abbr: "GNU" },
+    { name: "Mozilla Public License 2.0", abbr: "Mozilla" },
     { name: "The Unlicense", abbr: "UNI" }
   ];
 
@@ -53,20 +53,33 @@ const promptUser = () => {
         message: 'Select a license for your projrct',
         choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0','GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'],
       },
-  ]);
+      {
+        type: 'input',
+        name: 'gitHub',
+        message: 'Enter your GitHub Username.',
+      },      
+      {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your email address.',
+      },
+    ]);
 };
 
-const getLicense() =>
+const getLicense = (answers) =>
 {
     //I need to compare the selected license value from answers to that in the licenses object to select the abbr so I can set the badge
+    for (const lics of licenses) {
+        if (lics.name === answers.license)
+        return lics.abbr;
+      }
 };
 
-const generateMD = (answers) =>
-getLicense();
+const generateMD = (answers, licenseAbbr) => 
 
 `# ${answers.title}
 
-![mit](https://img.shields.io/badge/license-MIT-brightgreen)
+ ![mit](https://img.shields.io/badge/license-${licenseAbbr}-brightgreen)
 
 ## Description
 ${answers.description}
@@ -86,9 +99,10 @@ ${answers.contrib}
 ## License
 Licensed under the ${answers.license}
 
+## Questions
+You can view my GitHub profile at https://github.com/${answers.gitHub}
 
-
-
+If you have additonal queations you can email me at ${answers.email} 
 
 `;
 
@@ -98,7 +112,9 @@ const init = async () => {
   try {
     const answers = await promptUser();
 
-    const md = generateMD(answers);
+    let licenseAbbr = getLicense(answers);
+    
+    const md = generateMD(answers, licenseAbbr);
 
     await writeFileAsync('README.md', md);
 
