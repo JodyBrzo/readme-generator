@@ -1,6 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-
-const licenses = [
+const licenses = [  //license array to build the badge icon
   { name: 'Apache License 2.0', abbr: 'Apache', url: 'https://opensource.org/licenses/Apache-2.0'},
   { name: 'BSD 3-Clause \'New\' or \'Revised\' license', abbr: 'BSD', url: 'https://opensource.org/licenses/BSD-3-Clause'},
   { name: 'BSD 2-Clause \'Simplified\' or \'FreeBSD\' license', abbr: 'BSD', url: 'https://opensource.org/licenses/BSD-2-Clause'},
@@ -13,17 +11,19 @@ const licenses = [
 ];
 
 
+//compare license selected by user and return the matching license from the above licences array
+const findLicense = (license) => {
+  for (lic of licenses) {
+    if (lic.name === license)
+    return lic;
+  }}
+
+// TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let lic = findLicense(license);
   return lic ? `![license](https://img.shields.io/static/v1?label=license&message=${lic.abbr}&color=brightgreen)` : ''; 
 }
-
-const findLicense = (license) => {
-  for (lic of licenses) {
-    if (lic.name === license)
-    return lic;
-  }} 
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -85,4 +85,5 @@ ${licenseLink}
  If you have additonal queations you can email me at ${data.email} `;
 }
 
-exports.generateMarkdown = generateMarkdown;
+//export the generateMarkdown function
+module.exports.generateMarkdown = generateMarkdown;

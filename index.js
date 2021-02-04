@@ -1,10 +1,12 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require('inquirer'); 
+const fs = require('fs');  
 const util = require('util');
 const generateMarkdown = require('./assets/utils/generateMarkdown');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
+
+//interactice commandline user prompts array
 const userQuestions = () => {
   return inquirer.prompt([
     {
@@ -13,22 +15,22 @@ const userQuestions = () => {
       message: 'What is the title of your project?',
     },
       {
-        type: 'input',
+        type: 'editor',
         name: 'description',
         message: 'Enter a description of your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'install',
         message: 'Enter installation instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'usage',
         message: 'Enter usage instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'input',
+        type: 'editor',
         name: 'contrib',
         message: 'Enter contribution guidelines for your project.  Be sure to save before closing the editor when you are done.',
       },
@@ -73,13 +75,12 @@ const writeToFile = async (fileName, data) =>{
 }
 
 // TODO: Create a function to initialize app
-// Bonus using async/await and try/catch
 const init = async () => {
   console.log('Welcome to the README.md generator');
   try {
-    const answers = await userQuestions();
-    const md = generateMarkdown.generateMarkdown(answers);
-    writeToFile('README.md', md);  
+    const answers = await userQuestions(); //once user prompts are finished then retuen answers to answers array
+    const md = generateMarkdown.generateMarkdown(answers);  //call the function in generateMarkdoen.js file to create the markdown for the readme
+    writeToFile('README.md', md);  //call the writeToFile function and pass it the name 'README.MD' and the completed markdown
   } catch (err) {
     console.log(err);
     console.log('There was an error with user input');
