@@ -13,22 +13,22 @@ const userQuestions = () => {
       message: 'What is the title of your project?',
     },
       {
-        type: 'editor',
+        type: 'input',
         name: 'description',
         message: 'Enter a description of your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'editor',
+        type: 'input',
         name: 'install',
         message: 'Enter installation instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'editor',
+        type: 'input',
         name: 'usage',
         message: 'Enter usage instructions for your project.  Be sure to save before closing the editor when you are done.',
       },
       {
-        type: 'editor',
+        type: 'input',
         name: 'contrib',
         message: 'Enter contribution guidelines for your project.  Be sure to save before closing the editor when you are done.',
       },
@@ -44,7 +44,7 @@ const userQuestions = () => {
           'MIT license', 
           'Mozilla Public License 2.0', 
           'Common Development and Distribution License', 
-          'Eclipse Public License version 2.0',],
+          'Eclipse Public License version 2.0'],
       },
       {
         type: 'input',
@@ -60,7 +60,7 @@ const userQuestions = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+const writeToFile = async (fileName, data) =>{
 
   try {
     await writeFileAsync(fileName, data);

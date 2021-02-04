@@ -16,7 +16,7 @@ const licenses = [
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let lic = findLicense(license);
-  return lic ? `https://img.shields.io/static/v1?label=license&message=${lic.abbr}&color=brightgreen` : ''; 
+  return lic ? `![license](https://img.shields.io/static/v1?label=license&message=${lic.abbr}&color=brightgreen)` : ''; 
 }
 
 const findLicense = (license) => {
@@ -41,7 +41,7 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
   const licenseLink = renderLicenseLink(data.license);
   const licenseBadge = renderLicenseBadge(data.license);
   const licenseSection = renderLicenseSection(data.license);
@@ -85,4 +85,4 @@ ${licenseLink}
  If you have additonal queations you can email me at ${data.email} `;
 }
 
-module.exports = generateMarkdown;
+exports.generateMarkdown = generateMarkdown;
