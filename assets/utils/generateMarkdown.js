@@ -2,18 +2,14 @@
 
 const licenses = [
   { name: 'Apache License 2.0', abbr: 'Apache', url: 'https://opensource.org/licenses/Apache-2.0'},
-  { name: 'GNU General Public License v3.0', abbr: 'GNU' },
-  { name: 'MIT License', abbr: 'MIT' },
-  { name: 'BSD 2-Clause \'Simplified\' License', abbr: 'BSD' },
-  { name: 'BSD 3-Clause \'New\' or \'Revised\' License', abbr: 'BSD' },
-  { name: 'Boost Software License 1.0', abbr: 'Boost' },
-  { name: 'Creative Commons Zero v1.0 Universal', abbr: 'Creative' },
-  { name: 'Eclipse Public License 2.0', abbr: 'Eclipse' },
-  { name: 'GNU Affero General Public License v3.0', abbr: 'GNU' },
-  { name: 'GNU General Public License v2.0', abbr: 'GNU' },
-  { name: 'GNU Lesser General Public License v2.1', abbr: 'GNU' },
-  { name: 'Mozilla Public License 2.0', abbr: 'Mozilla' },
-  { name: 'The Unlicense', abbr: 'UNI' }
+  { name: 'BSD 3-Clause \'New\' or \'Revised\' license', abbr: 'BSD', url: 'https://opensource.org/licenses/BSD-3-Clause'},
+  { name: 'BSD 2-Clause \'Simplified\' or \'FreeBSD\' license', abbr: 'BSD', url: 'https://opensource.org/licenses/BSD-2-Clause'},
+  { name: 'GNU General Public License (GPL)', abbr: 'GNU', url: 'GNU General Public License (GPL)'},
+  { name: 'GNU Library or \'Lesser\' General Public License (LGPL)', abbr: 'GNU', url: 'https://opensource.org/licenses/lgpl-license'},
+  { name: 'MIT license', abbr: 'MIT', url: 'https://opensource.org/licenses/MIT'},
+  { name: 'Mozilla Public License 2.0', abbr: 'Mozilla', url: 'https://opensource.org/licenses/MPL-2.0'},
+  { name: 'Common Development and Distribution License', abbr: 'CDDL', url: 'https://opensource.org/licenses/CDDL-1.0'},
+  { name: 'Eclipse Public License version 2.0', abbr: 'Eclipse', url: 'https://opensource.org/licenses/EPL-2.0'},
 ];
 
 
