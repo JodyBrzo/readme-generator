@@ -119,7 +119,6 @@ If you have additonal queations you can email me at ${answers.email}
 
 `;
 
-// Bonus using async/await and try/catch
 const init = async () => {
   console.log('Welcome to the README.md generator');
   try {
