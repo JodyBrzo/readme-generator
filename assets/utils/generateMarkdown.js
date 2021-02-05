@@ -37,7 +37,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   let lic = findLicense(license);
-  return lic ? `Licensed under the ${lic.name} License` : ''; 
+  return lic ? `Licensed under ${lic.name}` : ''; 
 }
 
 // TODO: Create a function to generate markdown for README

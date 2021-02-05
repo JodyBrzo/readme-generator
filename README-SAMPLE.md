@@ -35,8 +35,7 @@ Eleifend mi in nulla posuere sollicitudin. Massa eget egestas purus viverra accu
  Sagittis eu volutpat odio facilisis mauris sit amet massa vitae. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Purus ut faucibus pulvinar elementum integer. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Tortor consequat id porta nibh. Id velit ut tortor pretium viverra suspendisse potenti nullam. Urna molestie at elementum eu facilisis sed odio morbi quis. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Amet aliquam id diam maecenas ultricies. Malesuada fames ac turpis egestas sed tempus urna et pharetra. Eu ultrices vitae auctor eu augue ut lectus. Aliquam ultrices sagittis orci a scelerisque purus semper. Augue ut lectus arcu bibendum at varius. Eget duis at tellus at urna condimentum mattis.
  
  ## License
-Licensed under the MIT license License
-
+Licensed under MIT license
 https://opensource.org/licenses/MIT
  
  ## Questions
