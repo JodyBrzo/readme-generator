@@ -5,10 +5,11 @@
  JavaScript, Node.js, NPM, Inquirer.js
 
  ## Description
-This professional README generator app uses Inquirer.js so that you can quickly and easily answer the command-line prompts dynamically generate a README file. Here is an example of a sample README https://github.com/JodyBrzo/readme-generator/blob/main/README-SAMPLE.md
+This professional README generator app uses Inquirer.js so that you can quickly and easily answer the command-line prompts dynamically generate a README file. Here is an example of a [sample README](https://github.com/JodyBrzo/readme-generator/blob/main/README-SAMPLE.md)
 
 ## Usage
-Check out my video _______ tutorial here or follow the steps below.
+Check out my [video tutorial](https://drive.google.com/file/d/1Ba4pvvTsKCDJxPFK8bimtDriHBam7Cd4/view) here or follow the steps below.
+
 
 1. To run this program, using a terminal window, change directory to where the index.js file is stored.  
     At the command prompt type node index.js 
